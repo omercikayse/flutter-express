@@ -6,7 +6,7 @@ const users = [];
 router.get("/", function (req, res, next) {
   const sortedUsers = users
     .sort((user1, user2) => {
-      user1.score < user2.score ? -1 : user1.score > user2.score ? 1 : 0;
+      user1.score < user2.score ? 1 : user1.score > user2.score ? -1 : 0;
     })
     .slice(0, 10);
   res.send(sortedUsers);
