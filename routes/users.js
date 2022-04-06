@@ -4,12 +4,13 @@ var router = express.Router();
 const users = [];
 /* GET users listing. */
 router.get("/", function (req, res, next) {
-  const sortedUsers = users
-    .sort((user1, user2) => {
-      user1.score < user2.score ? 1 : user1.score > user2.score ? -1 : 0;
-    })
-    .slice(0, 10);
-  res.send(sortedUsers);
+  res.send(
+    users
+      .sort((user1, user2) => {
+        user1.score < user2.score ? 1 : user1.score > user2.score ? -1 : 0;
+      })
+      .slice(0, 10)
+  );
 });
 
 router.post("/score", function (req, res, next) {
